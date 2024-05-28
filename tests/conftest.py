@@ -1,7 +1,8 @@
 import allure
 import pytest
-import requests
 from selene import browser
+
+from utils.helper import api_request
 
 BASE_URL = 'https://demowebshop.tricentis.com'
 
@@ -20,7 +21,7 @@ def browser_management():
 @pytest.fixture(scope='function', autouse=False)
 def cookie_customer():
     with allure.step('Получение cookie посетителя'):
-        result = requests.get(url=BASE_URL)
+        result = api_request(url=BASE_URL, endpoint="", method="GET")
         cookie_customer = result.cookies.get('Nop.customer')
 
     yield cookie_customer
