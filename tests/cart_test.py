@@ -1,4 +1,4 @@
-from pages.users_cart import cart
+from pages.cart_page import cart
 from selene import browser, have
 
 from tests.conftest import BASE_URL
